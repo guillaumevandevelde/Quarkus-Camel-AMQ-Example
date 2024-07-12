@@ -1,0 +1,16 @@
+services:
+  quarkus-app:
+    container_name: amq-quarkus-test
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+      - "5005:5005" # Debugging port
+    network_mode: "host"
+    working_dir: /work/quarkus-app
+    entrypoint: ["bash"]
+    tty: true
+    stdin_open: true
+    volumes:
+      - "C:/develop/code-with-quarkus:/work/quarkus-app"
